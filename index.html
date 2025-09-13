@@ -16,6 +16,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/preloader.css">
 
   <!--
     - google font link
@@ -27,8 +28,18 @@
   <script src="./assets/js/lightbox-plus-jquery.min.js"></script>
 </head>
 
-<body>
 
+<body onload="hideLoader();">
+  <div class="preloader" id="preloader">
+    <div class="content">
+      <div class="box1"></div>
+      <div class="box2"></div>
+    </div>
+    <div class="content">
+      <div class="box3"></div>
+      <div class="box4"></div>
+    </div>
+  </div>
   <!--
     - #MAIN
   -->
@@ -529,7 +540,7 @@
             <li class="filter-item">
               <button data-filter-btn>Web design</button>
             </li>
-            
+
             <li class="filter-item">
               <button data-filter-btn>Web development</button>
             </li>
@@ -572,12 +583,12 @@
               <a href="./assets/images/project-1.jpg" data-lightbox="portfolio">
                 <figure class="project-img">
                   <div class="project-item-icon-box">
-                
+
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  
-                    <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                  
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+
                 </figure>
 
                 <h3 class="project-title">Finance</h3>
@@ -643,7 +654,7 @@
 
             <li class="project-item  active" data-filter-item data-category="web design">
               <a href="./assets/images/project-6.png" data-lightbox="portfolio">
-              
+
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -662,7 +673,7 @@
 
             <li class="project-item  active" data-filter-item data-category="web development">
               <a href="./assets/images/project-7.png" data-lightbox="portfolio">
-              
+
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -681,7 +692,7 @@
 
             <li class="project-item  active" data-filter-item data-category="web development">
               <a href="./assets/images/project-9.png" data-lightbox="portfolio">
-              
+
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
@@ -965,6 +976,11 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    function hideLoader(){
+      document.getElementById('preloader').style.display = "none";
+    }
+  </script>
 
 </body>
 
