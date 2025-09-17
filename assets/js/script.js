@@ -171,3 +171,50 @@ function switchToPage(pageName) {
     }
   }
 }
+
+// theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light-theme');
+  const icon = themeToggle.querySelector('ion-icon');
+  if (body.classList.contains('light-theme')) {
+    icon.setAttribute('name', 'sunny-outline');
+  } else {
+    icon.setAttribute('name', 'moon-outline');
+  }
+});
+
+// animated title cycling in sidebar with typewriter effect
+const sidebarTitle = document.querySelector('.sidebar .info-content .title');
+const titles = ['Full Stack Developer', 'Programmer', 'Cloud enthusiast'];
+let titleIndex = 0;
+let currentText = '';
+let isDeleting = false;
+let charIndex = 0;
+
+function typeWriter() {
+  const fullText = titles[titleIndex];
+
+  if (isDeleting) {
+    currentText = fullText.substring(0, charIndex--);
+  } else {
+    currentText = fullText.substring(0, charIndex++);
+  }
+
+  sidebarTitle.textContent = currentText;
+
+  let typeSpeed = 100; // ms per character
+
+  if (!isDeleting && charIndex === fullText.length) {
+    // Pause at end of typing
+    setTimeout(() => { isDeleting = true; }, 2000);
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    titleIndex = (titleIndex + 1) % titles.length;
+  }
+  setTimeout(typeWriter, typeSpeed);
+}
+
+typeWriter();

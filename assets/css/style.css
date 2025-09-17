@@ -157,6 +157,58 @@ html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black); }
 
+/* Light theme ion-icon adjustments */
+body.light-theme ion-icon {
+  color: var(--white-1);
+}
+
+/* Light theme */
+body.light-theme {
+  --bg-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(0, 0%, 90%) 3%,
+    hsl(0, 0%, 95%) 97%
+  );
+  --bg-gradient-jet: linear-gradient(
+    to bottom right,
+    hsla(0, 0%, 85%, 0.251) 0%,
+    hsla(0, 0%, 90%, 0) 100%
+  ), hsl(0, 0%, 95%);
+  --bg-gradient-yellow-1: linear-gradient(
+    to bottom right,
+    hsl(45, 100%, 71%) 0%,
+    hsla(36, 100%, 69%, 0) 50%
+  );
+  --bg-gradient-yellow-2: linear-gradient(
+    135deg,
+    hsla(45, 100%, 71%, 0.251) 0%,
+    hsla(35, 100%, 68%, 0) 59.86%
+  ), hsl(0, 0%, 95%);
+  --border-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(0, 0%, 80%) 0%,
+    hsla(0, 0%, 80%, 0) 50%
+  );
+  --text-gradient-yellow: linear-gradient(
+    to right,
+    hsl(45, 100%, 72%),
+    hsl(35, 100%, 68%)
+  );
+
+  --jet: hsl(0, 0%, 70%);
+  --onyx: hsl(0, 0%, 75%);
+  --eerie-black-1: hsl(0, 0%, 85%);
+  --eerie-black-2: hsl(0, 0%, 90%);
+  --smoky-black: hsl(0, 0%, 98%);
+  --white-1: hsl(0, 0%, 5%);
+  --white-2: hsl(0, 0%, 10%);
+  --orange-yellow-crayola: hsl(45, 100%, 72%);
+  --vegas-gold: hsl(45, 54%, 58%);
+  --light-gray: hsl(0, 0%, 30%);
+  --light-gray-70: hsla(0, 0%, 30%, 0.7);
+  --bittersweet-shimmer: hsl(0, 43%, 51%);
+}
+
 
 
 
@@ -342,16 +394,16 @@ main {
 
 .info-content .name {
   color: var(--white-2);
-  font-size: var(--fs-3);
+  font-size: var(--fs-2);
   font-weight: var(--fw-500);
   letter-spacing: -0.25px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .info-content .title {
   color: var(--white-1);
   background: var(--onyx);
-  font-size: var(--fs-8);
+  font-size: var(--fs-6);
   font-weight: var(--fw-300);
   width: max-content;
   padding: 3px 12px;
@@ -431,6 +483,15 @@ main {
   font-size: var(--fs-7);
 }
 
+/* Light theme contact adjustments */
+body.light-theme .contact-info :is(.contact-link, time, address) {
+  color: var(--white-1);
+}
+
+body.light-theme .contact-item ion-icon {
+  color: var(--white-1);
+}
+
 .contact-info address { font-style: normal; }
 
 .social-list {
@@ -447,8 +508,12 @@ main {
   font-size: 18px;
 }
 
+/* Light theme social link adjustments */
+body.light-theme .social-item .social-link {
+  color: var(--white-1);
+}
 
-.social-item .social-link:hover { color: var(--light-gray); }
+body.light-theme .social-item .social-link:hover { color: var(--white-2); }
 
 
 
@@ -471,6 +536,20 @@ main {
   z-index: 5;
 }
 
+/* Light theme navbar adjustments */
+body.light-theme .navbar {
+  background: hsla(0, 0%, 90%, 0.75);
+  border: 1px solid var(--onyx);
+}
+
+body.light-theme .navbar-link {
+  color: var(--white-1);
+}
+
+body.light-theme .navbar-link.active {
+  color: var(--orange-yellow-crayola);
+}
+
 .navbar-list {
   display: flex;
   flex-wrap: wrap;
@@ -490,6 +569,49 @@ main {
 .navbar-link:focus { color: var(--light-gray-70); }
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
+
+.theme-toggle {
+  background: var(--border-gradient-onyx);
+  border: none;
+  color: var(--orange-yellow-crayola);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-1);
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+/* Light theme theme toggle adjustments */
+body.light-theme .theme-toggle {
+  background: var(--jet);
+  color: var(--orange-yellow-crayola);
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  background: var(--bg-gradient-yellow-1);
+}
+
+.theme-toggle:hover::before,
+.theme-toggle:focus::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.theme-toggle ion-icon {
+  font-size: 20px;
+}
 
 
 
@@ -1244,11 +1366,17 @@ textarea.form-input::-webkit-resizer { display: none; }
   transition: var(--transition-1);
 }
 
-.btn::before {
+/* Light theme button adjustments */
+body.light-theme .btn {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+}
+
+body.light-theme .btn::before {
   content: "";
   position: absolute;
   inset: 1px;
-  background: var(--bg-gradient-jet);
+  background: var(--orange-yellow-crayola);
   border-radius: inherit;
   z-index: -1;
   transition: var(--transition-1);
