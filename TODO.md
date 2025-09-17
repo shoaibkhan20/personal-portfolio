@@ -1,0 +1,3 @@
+- [x] Add switchToPage function to assets/js/script.js
+- [x] Add button in index.html about section to call switchToPage('contact')
+- [ ] Test the functionality by opening index.html in browser
